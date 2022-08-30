@@ -1,3 +1,10 @@
+locals {
+  common_tags = {
+    Name = "Nginix-Server"
+    Env  = "Web-App"
+  }
+}
+
 variable "aws_region" {
   description = "Region on which resources will be created"
   type        = string
@@ -10,20 +17,15 @@ variable "az_name" {
   default     = "eu-west-2a"
 }
 
-variable "ami_name" {
-  description = "Latest AMI ID on eu-west-2"
-  type        = string
-  default     = "ami-0fb391cce7a602d1f"
-}
-
 variable "inst_type" {
-  description = "Instance type used to launch EC2 Instance"
+  description = "Multiple instance types"
   type        = string
   default     = "t2.micro"
 }
 
-variable "inst_count" {
-  description = "No of EC2 instance that need to launched"
+variable "ami_id" {
+  description = "Ubuntu Server 22.04 LTS Free tier image"
   type        = string
-  default     = "1"
+  default     = "ami-0fb391cce7a602d1f"
+
 }
